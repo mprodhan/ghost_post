@@ -1,0 +1,21 @@
+<h1><a href="/forms/">Ghost Post</a></h1>
+<p>Wanna do it, then click above</p>
+<a href="/">Home</a>
+
+
+{% for d in data %}
+    <ul>
+        <h1>Anonymous {{d.id}}</h1>
+    {% if d.is_boast == True %}
+        <li>Boast</li>
+    {% else %}
+        <li>ROAST!!!</li>
+    {% endif %}
+        <li>{{d.post}}</li>
+        <li><a href="/upvote/{{d.id}}/"> Yay: </a>{{d.up_votes}}</li>
+        <li><a href="/downvote/{{d.id}}/">Boo: </a>{{d.down_votes}}</li>
+        <li>{{d.total_votes}}</li>
+        <li>{{d.submission}}</li>
+        <li><a href="/boast/">Check out the boast page</a> or <a href="/roast/">the roast page</a></li>
+    </ul>
+{% endfor %}

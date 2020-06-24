@@ -2,8 +2,15 @@ from django.db import models
 from django.utils import timezone
 
 class GhostPost(models.Model):
-    boast = models.BooleanField(default=True)
-    roast = models.BooleanField(default=True)
-    up_votes = models.IntegerField()
-    down_votes = models.IntegerField()
-    submission = models.DateTimeField(timezone.now)
+    is_boast = models.BooleanField(default=True, blank=True)
+    post = models.CharField(max_length=280)
+    up_votes = models.IntegerField(default=0)
+    down_votes = models.IntegerField(default=0)
+    submission = models.DateTimeField(default=timezone.now)
+
+    @property
+    def total_votes(self):
+        return self.up_votes - self.down_votes
+
+    def __str__(self):
+        return self.post

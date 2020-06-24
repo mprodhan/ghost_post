@@ -1,0 +1,19 @@
+<h1>Boast</h1>
+<a href="/">Home</a>
+
+<p><a href="/forms/">You can boast or roast</a></p>
+<p><a href="/roasts/">Check out the roast page</a></p>
+
+
+{% for boast in boasts %}
+    <ul>
+        <h1>Anonymous {{boast.id}}</h1>
+        {% if boast.is_boast == True %}
+            <li><a href="/boasts/{{boasts.id}}"></a>Boast</li>
+        {% endif %}
+            <li>{{boast.post}}</li>
+            <li>{{boast.up_votes}}</li>
+            <li>{{boast.down_votes}}</li>
+            <li>{{boast.submission}}</li>
+    </ul>
+{% endfor %}

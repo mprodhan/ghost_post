@@ -1,0 +1,17 @@
+<h1>ROAST!!!</h1>
+<a href="/">Home</a>
+
+<p><a href="/forms/">You can boast or roast</a></p>
+<a href="/boasts/">boasts</a>
+
+{% for roast in roasts %}
+    <ul>
+    {% if roast.is_boast == False %}
+        <li><a href="/roasts/{{roasts.id}}"></a>ROAST!!!</li>
+    {% endif %}
+        <li>{{roast.post}}</li>
+        <li>{{roast.up_votes}}</li>
+        <li>{{roast.down_votes}}</li>
+        <li>{{roast.submission}}</li>
+    </ul>
+{% endfor %}
